@@ -1,8 +1,13 @@
 package ait.cohort55.forum.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.util.List;
 
+@AllArgsConstructor
+@NoArgsConstructor
 
 @Getter
 public class PostAddDto {

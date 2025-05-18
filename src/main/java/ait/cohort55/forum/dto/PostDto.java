@@ -10,7 +10,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class PostDto {
-    private String id;
+    private String postId;
     private String title;
     private String content;
     private String author;

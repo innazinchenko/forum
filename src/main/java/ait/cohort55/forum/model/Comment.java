@@ -1,10 +1,13 @@
 package ait.cohort55.forum.model;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+
 @Getter
+@Setter
 public class Comment {
     private String user;
     private String message;
@@ -19,7 +22,8 @@ public class Comment {
         this.likes = 0;
     }
 
-    public void addLike(Integer like) {
-        this.likes += like;
+
+    public void addLike() {
+        this.likes += likes;
     }
 }

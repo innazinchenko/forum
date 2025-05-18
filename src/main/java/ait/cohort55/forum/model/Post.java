@@ -1,7 +1,11 @@
 package ait.cohort55.forum.model;
 
+import ait.cohort55.forum.dto.PostDto;
+
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -9,19 +13,16 @@ import java.util.List;
 
 
 @Getter
+@Setter
+@Document(collection = "posts")
 public class Post {
+    @Id
     private String postId;
-    @Setter
     private String title;
-    @Setter
     private String content;
-    @Setter
     private String author;
-    @Setter
     private LocalDateTime dateCreated;
-    @Setter
     private List<String> tags;
-    @Setter
     private Integer likes;
     private List<Comment> comments;
 
@@ -30,7 +31,7 @@ public class Post {
         this.title = title;
         this.content = content;
         this.author = author;
-        this.dateCreated = dateCreated;
+        this.dateCreated = LocalDateTime.now();
         this.tags = tags;
         this.likes = 0;
         this.comments = new ArrayList<>();
@@ -40,5 +41,22 @@ public class Post {
         Comment comment = new Comment(user, message, dateCreated, likes);
         comments.add(comment);
         return comment;
+    }
+
+    public void addLike() {
+        this.likes++;
+    }
+
+
+    public PostDto inDto() {
+        return new PostDto(
+                this.postId,
+                this.title,
+                this.content,
+                this.author,
+                this.dateCreated,
+                this.tags,
+                this.likes,
+                this.comments);
     }
 }

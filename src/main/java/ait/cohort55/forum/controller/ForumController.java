@@ -11,7 +11,7 @@ import java.util.Set;
 
 @RestController
 public class ForumController {
-    @Autowired
+
     private ForumService forumService;
 
     @PostMapping("/forum/post/{user}")
