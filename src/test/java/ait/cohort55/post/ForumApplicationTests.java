@@ -1,4 +1,4 @@
-package ait.cohort55.forum;
+package ait.cohort55.post;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

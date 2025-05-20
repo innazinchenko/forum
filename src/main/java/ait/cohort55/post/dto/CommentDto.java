@@ -1,6 +1,7 @@
-package ait.cohort55.forum.dto;
+package ait.cohort55.post.dto;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -9,10 +10,10 @@ import java.time.LocalDateTime;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class DeletePostDto {
-    private LocalDateTime timestamp;
-    private Integer status;
-    private String error;
+@Builder
+public class CommentDto {
+    private String user;
     private String message;
-    private String path;
+    private LocalDateTime dateCreated;
+    private Integer likes;
 }

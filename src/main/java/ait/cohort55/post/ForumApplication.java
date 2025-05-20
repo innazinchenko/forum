@@ -1,4 +1,4 @@
-package ait.cohort55.forum;
+package ait.cohort55.post;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
