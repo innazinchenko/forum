@@ -36,17 +36,25 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void addLike(String id) {
-
+        Post post = postRepository.findById(id).orElseThrow(PostNotFoundException::new);
+        post.addLike();
+        postRepository.save(post);
     }
 
     @Override
     public PostDto updatePost(String id, NewPostDto newPostDto) {
-        return null;
+        Post post = postRepository.findById(id).orElseThrow(PostNotFoundException::new);
+        post.setTitle(newPostDto.getTitle());
+        post.setContent(newPostDto.getContent());
+        postRepository.save(post);
+        return  modelMapper.map(postRepository.save(post), PostDto.class);
     }
 
     @Override
     public PostDto deletePost(String id) {
-        return null;
+        Post post = postRepository.findById(id).orElseThrow(PostNotFoundException::new);
+        postRepository.delete(post);
+        return modelMapper.map(post, PostDto.class);
     }
 
     @Override
