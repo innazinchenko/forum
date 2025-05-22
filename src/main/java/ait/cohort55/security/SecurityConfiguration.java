@@ -23,7 +23,7 @@ public class SecurityConfiguration {
                         .requestMatchers(HttpMethod.PATCH,"/account/user/{login}")
                            .access(new WebExpressionAuthorizationManager("#login == authentication.name"))
                         .requestMatchers(HttpMethod.DELETE, "/account/user/{login}")
-                           .access(new WebExpressionAuthorizationManager("#login == authentication.name"))
+                           .access(new WebExpressionAuthorizationManager("#login == authentication.name or hasRole(ADMINISTRATOR)"))
                         .requestMatchers(HttpMethod.PATCH, "/forum/post/comment/{login}")
                            .access(new WebExpressionAuthorizationManager("#login == authentication.name"))
                         .requestMatchers(HttpMethod.POST, "/forum/post/{login}")
